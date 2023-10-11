@@ -1880,14 +1880,4 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
-.skills-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px; /* Adjust the gap as needed */
-}
 
-/* Style for each skill section */
-.skill {
-  flex: 0 0 calc(50% - 20px); /* 50% width with a gap of 20px between sections */
-}
