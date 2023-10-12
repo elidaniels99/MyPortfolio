@@ -236,22 +236,21 @@
             padding: 0;
         }
 
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap; /* Display list items in multiple rows */
+            gap: 10px; /* Add space between list items */
+        }
+
+        .software-list {
+            display: flex;
+            flex-wrap: wrap; /* Display list items in multiple rows */
+            gap: 10px; /* Add space between list items */
+        }
+
         li {
             font-weight: bold; /* Make the text bold */
             color: #fff; /* Set text color to white */
-            margin-left: 20px; /* Add space for the marker */
-            position: relative;
-        }
-
-        li::before {
-            content: "•"; /* Use a bullet point as the marker */
-            color: #fff;
-            font-weight: bold;
-            display: inline-block;
-            margin-left: -20px; /* Counter the margin for the marker position */
-            width: 1em;
-            position: absolute;
-            left: 0;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
@@ -259,7 +258,7 @@
 <body>
     <h3>Skills</h3>
     <div class="section-card">
-        <ul>
+        <ul class="skills-list">
             <li>Python</li>
             <li>SQL</li>
             <li>Pandas</li>
@@ -278,7 +277,7 @@
 
     <h3>Software</h3>
     <div class="section-card">
-        <ul>
+        <ul class="software-list">
             <li>Jupyter Notebook</li>
             <li>Visual Studio Code</li>
             <li>Tableau</li>
@@ -291,7 +290,6 @@
     </div>
 </body>
 </html>
-
         <!--
           - service
         -->
