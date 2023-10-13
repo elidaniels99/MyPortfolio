@@ -156,65 +156,24 @@
         - #ABOUT
       -->
 
-    <html>
-<head>
-    <title>About Me</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-        }
+    <article class="about  active" data-page="about">
 
-        .about-text {
-            font-size: 16px;
-        }
-    </style>
-</head>
-<body>
-    <article class="about active" data-page="about">
         <header>
-            <h2 class="h2 article-title">About me</h2>
+          <h2 class="h2 article-title">About me</h2>
         </header>
+
         <section class="about-text">
-            <p id="line1">Data-driven entrepreneur and versatile data scientist</p>
-            <p id="line2"></p>
+          <p>
+            Data-driven entrepreneur and versatile data scientist 
+            with a proven track record of leveraging diverse skill sets to seize opportunities.
+          </p>
+
+          <p>
+            Proficient in data modeling and processing, as well as programming languages 
+            including Python and SwiftUI. Procuring, cleaning and interpreting data from varying sources to 
+            create solutions and overcome challenges.
+          </p>
         </section>
-    </article>
-
-    <script>
-        const line1 = "Data-driven entrepreneur and versatile data scientist";
-        const line2 = "Proficient in data modeling and processing, as well as programming languages including Python and SwiftUI. Procuring, cleaning and interpreting data from varying sources to create solutions and overcome challenges.";
-
-        const line1Element = document.getElementById("line1");
-        const line2Element = document.getElementById("line2");
-
-        let index = 0;
-        let speed = 20; // Faster typing speed in milliseconds
-
-        function typeText() {
-            if (index < line1.length) {
-                line1Element.innerHTML += line1.charAt(index);
-                index++;
-                setTimeout(typeText, speed);
-            } else {
-                // Start typing the second line
-                index = 0;
-                setTimeout(typeLine2, 1000); // Wait for 1 second before typing the next line
-            }
-        }
-
-        function typeLine2() {
-            if (index < line2.length) {
-                line2Element.innerHTML += line2.charAt(index);
-                index++;
-                setTimeout(typeLine2, speed);
-            }
-        }
-
-        // Start typing the first line
-        typeText();
-    </script>
-</body>
-</html>
 
         
 <html>
