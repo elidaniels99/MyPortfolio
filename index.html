@@ -156,24 +156,65 @@
         - #ABOUT
       -->
 
-    <article class="about  active" data-page="about">
+    <html>
+<head>
+    <title>About Me</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
 
+        .about-text {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <article class="about active" data-page="about">
         <header>
-          <h2 class="h2 article-title">About me</h2>
+            <h2 class="h2 article-title">About me</h2>
         </header>
-
         <section class="about-text">
-          <p>
-            Data-driven entrepreneur and versatile data scientist 
-            with a proven track record of leveraging diverse skill sets to seize opportunities.
-          </p>
-
-          <p>
-            Proficient in data modeling and processing, as well as programming languages 
-            including Python and SwiftUI. Procuring, cleaning and interpreting data from varying sources to 
-            create solutions and overcome challenges.
-          </p>
+            <p id="line1">Data-driven entrepreneur and versatile data scientist</p>
+            <p id="line2"></p>
         </section>
+    </article>
+
+    <script>
+        const line1 = "Data-driven entrepreneur and versatile data scientist";
+        const line2 = "Proficient in data modeling and processing, as well as programming languages including Python and SwiftUI. Procuring, cleaning and interpreting data from varying sources to create solutions and overcome challenges.";
+
+        const line1Element = document.getElementById("line1");
+        const line2Element = document.getElementById("line2");
+
+        let index = 0;
+        let speed = 20; // Faster typing speed in milliseconds
+
+        function typeText() {
+            if (index < line1.length) {
+                line1Element.innerHTML += line1.charAt(index);
+                index++;
+                setTimeout(typeText, speed);
+            } else {
+                // Start typing the second line
+                index = 0;
+                setTimeout(typeLine2, 1000); // Wait for 1 second before typing the next line
+            }
+        }
+
+        function typeLine2() {
+            if (index < line2.length) {
+                line2Element.innerHTML += line2.charAt(index);
+                index++;
+                setTimeout(typeLine2, speed);
+            }
+        }
+
+        // Start typing the first line
+        typeText();
+    </script>
+</body>
+</html>
 
         
 <html>
@@ -192,29 +233,6 @@
             margin: 20px;
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            opacity: 0; /* Initially set opacity to 0 for the fade-in effect */
-        }
-
-        @keyframes fadeInLeft {
-            0% {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            0% {
-                opacity: 0;
-                transform: translateX(100px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
         }
 
         h3 {
@@ -230,14 +248,12 @@
             display: flex;
             flex-wrap: wrap; /* Display list items in multiple rows */
             gap: 10px; /* Add space between list items */
-            animation: fadeInLeft 1s ease-in-out forwards; /* Apply the animation */
         }
 
         .software-list {
             display: flex;
             flex-wrap: wrap; /* Display list items in multiple rows */
             gap: 10px; /* Add space between list items */
-            animation: fadeInRight 1s ease-in-out forwards; /* Apply the animation */
         }
 
         li {
