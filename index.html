@@ -24,7 +24,56 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
+ <html>
+<head>
+    <title>Cursor Trail with Green Particle Effects</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            cursor: url('custom-cursor.png'), auto;
+        }
 
+        #cursorTrail {
+            position: absolute;
+            z-index: 9999; /* Ensure it's on top of other elements */
+        }
+
+        .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #00FF00; /* Green color */
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="cursorTrail"></div>
+
+    <script>
+        const cursorTrail = document.getElementById('cursorTrail');
+
+        document.addEventListener('mousemove', (event) => {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            cursorTrail.appendChild(particle);
+
+            const x = event.clientX;
+            const y = event.clientY;
+
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+
+            // Remove particles after a certain time to avoid clutter
+            setTimeout(() => {
+                cursorTrail.removeChild(particle);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
+    
 <body>
 
   <!--
@@ -116,56 +165,7 @@
     <!--
       - #main-content
     -->
- <html>
-<head>
-    <title>Cursor Trail with Green Particle Effects</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            cursor: url('custom-cursor.png'), auto;
-        }
 
-        #cursorTrail {
-            position: absolute;
-            z-index: 9999; /* Ensure it's on top of other elements */
-        }
-
-        .particle {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background-color: #00FF00; /* Green color */
-            border-radius: 50%;
-        }
-    </style>
-</head>
-<body>
-    <div id="cursorTrail"></div>
-
-    <script>
-        const cursorTrail = document.getElementById('cursorTrail');
-
-        document.addEventListener('mousemove', (event) => {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            cursorTrail.appendChild(particle);
-
-            const x = event.clientX;
-            const y = event.clientY;
-
-            particle.style.left = x + 'px';
-            particle.style.top = y + 'px';
-
-            // Remove particles after a certain time to avoid clutter
-            setTimeout(() => {
-                cursorTrail.removeChild(particle);
-            }, 1000);
-        });
-    </script>
-</body>
-</html>
-    
     <div class="main-content">
 
       <!--
