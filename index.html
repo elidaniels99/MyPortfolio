@@ -116,7 +116,7 @@
     <!--
       - #main-content
     -->
-   <html>
+  <html>
 <head>
     <title>Cursor Trail with Particle Effects</title>
     <style>
@@ -150,8 +150,8 @@
             particle.classList.add('particle');
             cursorTrail.appendChild(particle);
 
-            const x = event.clientX;
-            const y = event.clientY;
+            const x = event.clientX - 4; // Subtract half of the particle's width
+            const y = event.clientY - 4; // Subtract half of the particle's height
 
             particle.style.left = x + 'px';
             particle.style.top = y + 'px';
@@ -164,7 +164,7 @@
     </script>
 </body>
 </html>
-
+    
     <div class="main-content">
 
       <!--
