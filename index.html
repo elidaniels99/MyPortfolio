@@ -118,12 +118,12 @@
     -->
   <html>
 <head>
-    <title>Cursor Trail with Particle Effects</title>
+    <title>Cursor Trail with Green Particle Effects</title>
     <style>
         body {
             margin: 0;
             overflow: hidden;
-            cursor: url('custom-cursor.png'), auto;
+            cursor: none; /* Hide the default cursor */
         }
 
         #cursorTrail {
@@ -133,9 +133,9 @@
 
         .particle {
             position: absolute;
-            width: 8px;
-            height: 8px;
-            background-color: #ff5733;
+            width: 16px;
+            height: 16px;
+            background-color: #00FF00; /* Green color */
             border-radius: 50%;
         }
     </style>
@@ -151,8 +151,8 @@
             particle.classList.add('particle');
             cursorTrail.appendChild(particle);
 
-            const x = event.clientX;
-            const y = event.clientY;
+            const x = event.clientX - 8; // Subtract half of the particle's width
+            const y = event.clientY - 8; // Subtract half of the particle's height
 
             particle.style.left = x + 'px';
             particle.style.top = y + 'px';
