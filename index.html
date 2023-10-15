@@ -303,6 +303,15 @@
         li {
             font-weight: bold; /* Make the text bold */
             color: #fff; /* Set text color to white */
+            position: relative;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: '►'; /* Unicode character for a white arrow (you can use your preferred arrow symbol) */
+            color: white; /* Set the arrow color to white */
+            position: absolute;
+            left: 0;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
