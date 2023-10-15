@@ -357,9 +357,38 @@
 </body>
 </html>
         
-<img src="assets/images/skillsimage.png" alt="Skills Image" style="max-width: 100%; height: auto;">
-   
+<html>
+<head>
+    <title>Cursor-Following Visual</title>
+    <style>
+        #cursorFollower {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="cursorFollower"></div>
 
+    <script>
+        const cursorFollower = document.getElementById('cursorFollower');
+
+        // Update the position of the cursor follower element
+        document.addEventListener('mousemove', (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+
+            // Set the position of the cursor follower element
+            cursorFollower.style.left = x + 'px';
+            cursorFollower.style.top = y + 'px';
+        });
+    </script>
+</body>
+</html>
+   
 
 <!--
           - testimonials modal
