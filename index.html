@@ -38,7 +38,6 @@
             text-align: center;
             padding: 20px 0 20px 0; /* Added padding to the top */
             color: white;
-            overflow: hidden;
         }
 
         .headline span {
@@ -49,10 +48,10 @@
         }
 
         @keyframes typing {
-            from {
+            0% {
                 width: 0;
             }
-            to {
+            100% {
                 width: 100%;
             }
         }
@@ -69,7 +68,7 @@
 </head>
 <body>
     <div class="headline">
-        <span id="headlineText">Unearthing Insights from Data</span>
+        <span id="headlineText"></span>
     </div>
 
     <script>
@@ -89,12 +88,36 @@
 
         let currentHeadlineIndex = 0;
 
-        function changeHeadline() {
-            headlineText.textContent = headlines[currentHeadlineIndex];
-            currentHeadlineIndex = (currentHeadlineIndex + 1) % headlines.length;
+        function typeOutHeadline() {
+            let text = headlines[currentHeadlineIndex];
+            let i = 0;
+            let speed = 50; // Typing speed in milliseconds
+
+            function type() {
+                if (i < text.length) {
+                    headlineText.textContent = text.substring(0, i + 1);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    setTimeout(erase, 1000); // Display each headline for 1 second
+                }
+            }
+
+            function erase() {
+                if (i > 0) {
+                    headlineText.textContent = text.substring(0, i - 1);
+                    i--;
+                    setTimeout(erase, speed);
+                } else {
+                    currentHeadlineIndex = (currentHeadlineIndex + 1) % headlines.length;
+                    setTimeout(typeOutHeadline, 500); // Delay before typing the next headline
+                }
+            }
+
+            type();
         }
 
-        setInterval(changeHeadline, 8000); // Change the headline every 8 seconds
+        typeOutHeadline(); // Start typing out headlines
     </script>
 </body>
 </html>
