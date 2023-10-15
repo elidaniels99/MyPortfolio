@@ -150,6 +150,55 @@
 
 
 
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="headline">Unearthing Insights from Data</h1>
+    </header>
+    <script src="script.js"></script>
+</body>
+</html>
+      header {
+    text-align: center;
+    padding: 50px;
+    background-color: #333;
+    color: #fff;
+    font-size: 36px;
+}
+
+#headline {
+    animation: changeHeadline 5s linear infinite;
+}
+
+@keyframes changeHeadline {
+    0%, 20% { opacity: 1; }
+    25%, 100% { opacity: 0; }
+}
+      const headlines = [
+    "Unearthing Insights from Data",
+    "Data Alchemist",
+    "Data Wizardry",
+    "Data Explorer",
+    "From Raw Data to Actionable Insights",
+    "Sculpting Data into Intelligence",
+    "Bridging Data and Decisions",
+    "Data Whisperer",
+    "Data Detective",
+    "Code, Data, Insights"
+];
+
+let headlineIndex = 0;
+
+function changeHeadline() {
+    const headline = document.getElementById('headline');
+    headline.textContent = headlines[headlineIndex];
+    headlineIndex = (headlineIndex + 1) % headlines.length;
+}
+
+setInterval(changeHeadline, 5000);
 
 
       <!--
