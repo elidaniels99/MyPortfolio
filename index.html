@@ -356,54 +356,6 @@
     </div>
 </body>
 </html>
-        
-<html>
-<head>
-    <title>Cursor Trail with Particle Effects</title>
-    <style>
-        body {
-            margin: 0;
-            cursor: url('custom-cursor.png'), auto;
-        }
-
-        #cursorTrail {
-            position: absolute;
-        }
-
-        .particle {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background-color: #ff5733;
-            border-radius: 50%;
-        }
-    </style>
-</head>
-<body>
-    <div id="cursorTrail"></div>
-
-    <script>
-        const cursorTrail = document.getElementById('cursorTrail');
-
-        document.addEventListener('mousemove', (event) => {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            cursorTrail.appendChild(particle);
-
-            const x = event.clientX;
-            const y = event.clientY;
-
-            particle.style.left = x + 'px';
-            particle.style.top = y + 'px';
-
-            // Remove particles after a certain time to avoid clutter
-            setTimeout(() => {
-                cursorTrail.removeChild(particle);
-            }, 1000);
-        });
-    </script>
-</body>
-</html>
    
 
 <!--
@@ -992,4 +944,52 @@
 
 </body>
 
+</html>
+
+<html>
+<head>
+    <title>Cursor Trail with Particle Effects</title>
+    <style>
+        body {
+            margin: 0;
+            cursor: url('custom-cursor.png'), auto;
+        }
+
+        #cursorTrail {
+            position: absolute;
+        }
+
+        .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #ff5733;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="cursorTrail"></div>
+
+    <script>
+        const cursorTrail = document.getElementById('cursorTrail');
+
+        document.addEventListener('mousemove', (event) => {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            cursorTrail.appendChild(particle);
+
+            const x = event.clientX;
+            const y = event.clientY;
+
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+
+            // Remove particles after a certain time to avoid clutter
+            setTimeout(() => {
+                cursorTrail.removeChild(particle);
+            }, 1000);
+        });
+    </script>
+</body>
 </html>
