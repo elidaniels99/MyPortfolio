@@ -359,31 +359,48 @@
         
 <html>
 <head>
-    <title>Cursor-Following Visual</title>
+    <title>Cursor Trail with Particle Effects</title>
     <style>
-        #cursorFollower {
-            width: 50px;
-            height: 50px;
-            background-color: blue;
+        body {
+            margin: 0;
+            overflow: hidden;
+            cursor: none; /* Hide the default cursor */
+        }
+
+        #cursorTrail {
             position: absolute;
+        }
+
+        .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #ff5733;
             border-radius: 50%;
         }
     </style>
 </head>
 <body>
-    <div id="cursorFollower"></div>
+    <div id="cursorTrail"></div>
 
     <script>
-        const cursorFollower = document.getElementById('cursorFollower');
+        const cursorTrail = document.getElementById('cursorTrail');
 
-        // Update the position of the cursor follower element
         document.addEventListener('mousemove', (event) => {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            cursorTrail.appendChild(particle);
+
             const x = event.clientX;
             const y = event.clientY;
 
-            // Set the position of the cursor follower element
-            cursorFollower.style.left = x + 'px';
-            cursorFollower.style.top = y + 'px';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+
+            // Remove particles after a certain time to avoid clutter
+            setTimeout(() => {
+                cursorTrail.removeChild(particle);
+            }, 1000);
         });
     </script>
 </body>
