@@ -30,105 +30,7 @@
   <!--
     - #MAIN
   -->
-<html>
-<head>
-    <style>
-      .container {
-            position: relative;
-            min-height: 300px; 
-        }
-         .headline {
-            font-size: 36px;
-            text-align: center;
-            padding: 20px;
-            position: absolute; 
-            bottom: 10px; 
-            left: 0;
-            right: 0;
-            color: white;
-        }
 
-        .headline span {
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: typing 4s steps(30, end), blink-caret 0.5s step-end infinite;
-        }
-
-        @keyframes typing {
-            0% {
-                width: 0;
-            }
-            100% {
-                width: 100%;
-            }
-        }
-
-        @keyframes blink-caret {
-            from, to {
-                border-right: 2px solid transparent;
-            }
-            50% {
-                border-right: 2px solid white;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="headline">
-        <span id="headlineText"></span>
-    </div>
-
-    <script>
-        const headlineText = document.getElementById('headlineText');
-        const headlines = [
-            "Unearthing Insights from Data",
-            "Data Alchemist",
-            "Data Wizardry",
-            "Data Explorer",
-            "From Raw Data to Actionable Insights",
-            "Sculpting Data into Intelligence",
-            "Bridging Data and Decisions",
-            "Data Whisperer",
-            "Data Detective",
-            "Code, Data, Insights"
-        ];
-
-        let currentHeadlineIndex = 0;
-
-        function typeOutHeadline() {
-            let text = headlines[currentHeadlineIndex];
-            let i = 0;
-            let speed = 50; // Typing speed in milliseconds
-
-            function type() {
-                if (i < text.length) {
-                    headlineText.textContent = text.substring(0, i + 1);
-                    i++;
-                    setTimeout(type, speed);
-                } else {
-                    setTimeout(erase, 1000); // Display each headline for 1 second
-                }
-            }
-
-            function erase() {
-                if (i > 0) {
-                    headlineText.textContent = text.substring(0, i - 1);
-                    i--;
-                    setTimeout(erase, speed);
-                } else {
-                    currentHeadlineIndex = (currentHeadlineIndex + 1) % headlines.length;
-                    setTimeout(typeOutHeadline, 500); // Delay before typing the next headline
-                }
-            }
-
-            type();
-        }
-
-        typeOutHeadline(); // Start typing out headlines
-    </script>
-</body>
-</html>
   <main>
 
     <!--
@@ -247,11 +149,103 @@
       <!--
         - #ABOUT
       -->
+      
 
     <article class="about  active" data-page="about">
 
         <header>
           <h2 class="h2 article-title">About me</h2>
+          <html>
+<head>
+    <style>
+        .headline {
+            font-size: 36px;
+            text-align: center;
+            padding: 40px 0 20px 0; /* Increased padding to move it down */
+            color: white;
+        }
+
+        .headline span {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(30, end), blink-caret 0.5s step-end infinite;
+        }
+
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            from, to {
+                border-right: 2px solid transparent;
+            }
+            50% {
+                border-right: 2px solid white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="headline">
+        <span id="headlineText"></span>
+    </div>
+
+    <script>
+        const headlineText = document.getElementById('headlineText');
+        const headlines = [
+            "Unearthing Insights from Data",
+            "Data Alchemist",
+            "Data Wizardry",
+            "Data Explorer",
+            "From Raw Data to Actionable Insights",
+            "Sculpting Data into Intelligence",
+            "Bridging Data and Decisions",
+            "Data Whisperer",
+            "Data Detective",
+            "Code, Data, Insights"
+        ];
+
+        let currentHeadlineIndex = 0;
+
+        function typeOutHeadline() {
+            let text = headlines[currentHeadlineIndex];
+            let i = 0;
+            let speed = 50; // Typing speed in milliseconds
+
+            function type() {
+                if (i < text.length) {
+                    headlineText.textContent = text.substring(0, i + 1);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    setTimeout(erase, 1000); // Display each headline for 1 second
+                }
+            }
+
+            function erase() {
+                if (i > 0) {
+                    headlineText.textContent = text.substring(0, i - 1);
+                    i--;
+                    setTimeout(erase, speed);
+                } else {
+                    currentHeadlineIndex = (currentHeadlineIndex + 1) % headlines.length;
+                    setTimeout(typeOutHeadline, 500); // Delay before typing the next headline
+                }
+            }
+
+            type();
+        }
+
+        typeOutHeadline(); // Start typing out headlines
+    </script>
+</body>
+</html>
         </header>
 
         <section class="about-text">
