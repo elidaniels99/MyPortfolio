@@ -1,75 +1,3 @@
-<html>
-<head>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .news-headlines {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .headline {
-            font-size: 24px;
-            line-height: 2;
-            white-space: nowrap;
-            position: absolute;
-            top: -100px;
-            left: 0;
-            width: 100%;
-            animation: scrollHeadlines 10s linear infinite;
-        }
-
-        @keyframes scrollHeadlines {
-            0% {
-                top: -100px;
-            }
-            100% {
-                top: calc(100% - 2em);
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="news-headlines">
-        <div class="headline" id="headline">
-            <p>Unearthing Insights from Data</p>
-        </div>
-    </div>
-
-    <script>
-        const headlines = [
-            "Unearthing Insights from Data",
-            "Data Alchemist",
-            "Data Wizardry",
-            "Data Explorer",
-            "From Raw Data to Actionable Insights",
-            "Sculpting Data into Intelligence",
-            "Bridging Data and Decisions",
-            "Data Whisperer",
-            "Data Detective",
-            "Code, Data, Insights"
-        ];
-
-        let headlineIndex = 0;
-        const headlineElement = document.getElementById('headline');
-
-        function changeHeadline() {
-            headlineElement.textContent = headlines[headlineIndex];
-            headlineIndex = (headlineIndex + 1) % headlines.length;
-        }
-
-        setInterval(changeHeadline, 5000);
-    </script>
-</body>
-</html>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,7 +30,56 @@
   <!--
     - #MAIN
   -->
+<html>
+<head>
+    <style>
+        .headline {
+            font-size: 36px;
+            text-align: center;
+            padding: 20px;
+            animation: changeText 8s infinite;
+        }
 
+        @keyframes changeText {
+            0%, 100% { opacity: 0; }
+            12% { opacity: 1; }
+            25% { opacity: 1; }
+            37% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="headline">
+        <span id="headlineText">Unearthing Insights from Data</span>
+    </div>
+
+    <script>
+        const headlineText = document.getElementById('headlineText');
+        const headlines = [
+            "Unearthing Insights from Data",
+            "Data Alchemist",
+            "Data Wizardry",
+            "Data Explorer",
+            "From Raw Data to Actionable Insights",
+            "Sculpting Data into Intelligence",
+            "Bridging Data and Decisions",
+            "Data Whisperer",
+            "Data Detective",
+            "Code, Data, Insights"
+        ];
+
+        let currentHeadlineIndex = 0;
+
+        function changeHeadline() {
+            headlineText.textContent = headlines[currentHeadlineIndex];
+            currentHeadlineIndex = (currentHeadlineIndex + 1) % headlines.length;
+        }
+
+        setInterval(changeHeadline, 8000); // Change the headline every 8 seconds
+    </script>
+</body>
+</html>
   <main>
 
     <!--
@@ -183,9 +160,6 @@
       </div>
 
     </aside>
-
-
-
 
 
     <!--
