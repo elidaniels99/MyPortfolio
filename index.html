@@ -122,12 +122,12 @@
     <style>
         body {
             margin: 0;
-            overflow: hidden;
             cursor: url('custom-cursor.png'), auto;
         }
 
         #cursorTrail {
             position: absolute;
+            z-index: 9999; /* Ensure it's on top of other elements */
         }
 
         .particle {
