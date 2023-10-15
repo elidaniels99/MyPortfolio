@@ -26,7 +26,7 @@
 </head>
  <html>
 <head>
-    <title>Cursor Trail with Green Particle Effects</title>
+    <title>Cursor Trail with Star Particles</title>
     <style>
         body {
             margin: 0;
@@ -40,10 +40,10 @@
 
         .particle {
             position: absolute;
-            width: 6px;
-            height:6px;
-            background-color: #00FF00; /* Green color */
-            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            background-image: url('star.png'); /* Replace with the path to your star image */
+            background-size: 100% 100%; /* Ensure the image covers the entire particle */
         }
     </style>
 </head>
@@ -61,8 +61,8 @@
             const x = event.clientX;
             const y = event.clientY;
 
-            particle.style.left = x + 'px';
-            particle.style.top = y + 'px';
+            particle.style.left = x - 10 + 'px';  /* Adjust positioning to center the image */
+            particle.style.top = y - 10 + 'px';
 
             // Remove particles after a certain time to avoid clutter
             setTimeout(() => {
