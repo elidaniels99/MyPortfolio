@@ -36,16 +36,34 @@
         .headline {
             font-size: 36px;
             text-align: center;
-            animation: slideInOut 8s infinite;
+            padding: 20px 0 20px 0; /* Added padding to the top */
             color: white;
+            overflow: hidden;
         }
 
-        @keyframes changeText {
-            0%, 100% { opacity: 0; }
-            12% { opacity: 1; }
-            25% { opacity: 1; }
-            37% { opacity: 0; }
-            100% { opacity: 0; }
+        .headline span {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(30, end), blink-caret 0.5s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            from, to {
+                border-right: 2px solid transparent;
+            }
+            50% {
+                border-right: 2px solid white;
+            }
         }
     </style>
 </head>
