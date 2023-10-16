@@ -25,71 +25,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
-<html>
+
+<html lang="en">
 <head>
-    <title>Floating Green Particles</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Green Dots Background</title>
     <style>
         body {
             margin: 0;
-            cursor: url('custom-cursor.png'), auto;
-            overflow: hidden; /* Hide the scrollbars */
+            padding: 0;
+            background-color: black;
         }
 
-        #cursorTrail {
-            position: absolute;
-            z-index: 9999; /* Ensure it's on top of other elements */
-        }
-
-        .particle {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background-color: #00FF00; /* Green color */
-            border-radius: 50%;
-            animation: floatAnimation 4s linear infinite; /* CSS animation */
-        }
-
-        @keyframes floatAnimation {
-            0% {
-                transform: translate(0, 0);
-            }
-            50% {
-                transform: translate(20px, -20px);
-            }
-            100% {
-                transform: translate(0, 0);
-            }
+        /* Create a class for the green dot */
+        .green-dot {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            background-color: green;
+            border-radius: 100%;
         }
     </style>
 </head>
 <body>
-    <div id="cursorTrail"></div>
-
+    <!-- JavaScript to create and move green dots -->
     <script>
-        const cursorTrail = document.getElementById('cursorTrail');
+        // Function to create a green dot at a random position
+        function createGreenDot() {
+            const dot = document.createElement("div");
+            dot.classList.add("green-dot");
+            dot.style.left = `${Math.random() * 100}vw`;
+            dot.style.top = `${Math.random() * 100}vh`;
+            document.body.appendChild(dot);
 
-        function createParticle(event) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            cursorTrail.appendChild(particle);
-
-            const x = event.clientX;
-            const y = event.clientY;
-
-            particle.style.left = x - 3 + 'px'; // Adjust positioning to center the particle
-            particle.style.top = y - 3 + 'px';
-
-            // Remove particles after a certain time to avoid clutter
-            setTimeout(() => {
-                cursorTrail.removeChild(particle);
-            }, 4000);
+            // Animate the dot's movement
+            dot.animate(
+                [
+                    { transform: "translate(-10px, -10px)" },
+                    { transform: "translate(10px, 10px)" },
+                ],
+                {
+                    duration: 2000 + Math.random() * 3000, // Randomize the duration
+                    iterations: Infinity,
+                    direction: "alternate", // Make it bounce back and forth
+                }
+            );
         }
 
-        document.addEventListener('mousemove', createParticle);
+        // Create multiple green dots to cover the viewport
+        for (let i = 0; i < 100; i++) { // You can adjust the number of dots
+            createGreenDot();
+        }
     </script>
 </body>
 </html>
-
 
     
 <body>
