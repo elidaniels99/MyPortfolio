@@ -27,11 +27,12 @@
 
 <html>
 <head>
-    <title>Cursor Trail with Green Particle Effects</title>
+    <title>Floating Green Particles</title>
     <style>
         body {
             margin: 0;
             cursor: url('custom-cursor.png'), auto;
+            overflow: hidden; /* Hide the scrollbars */
         }
 
         #cursorTrail {
@@ -41,10 +42,23 @@
 
         .particle {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background-color: #00FF00; /* Green color */
             border-radius: 50%;
+            animation: floatAnimation 4s linear infinite; /* CSS animation */
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(20px, -20px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
         }
     </style>
 </head>
@@ -54,7 +68,7 @@
     <script>
         const cursorTrail = document.getElementById('cursorTrail');
 
-        document.addEventListener('mousemove', (event) => {
+        function createParticle(event) {
             const particle = document.createElement('div');
             particle.classList.add('particle');
             cursorTrail.appendChild(particle);
@@ -62,14 +76,16 @@
             const x = event.clientX;
             const y = event.clientY;
 
-            particle.style.left = x + 'px';
-            particle.style.top = y + 'px';
+            particle.style.left = x - 3 + 'px'; // Adjust positioning to center the particle
+            particle.style.top = y - 3 + 'px';
 
             // Remove particles after a certain time to avoid clutter
             setTimeout(() => {
                 cursorTrail.removeChild(particle);
-            }, 1000);
-        });
+            }, 4000);
+        }
+
+        document.addEventListener('mousemove', createParticle);
     </script>
 </body>
 </html>
