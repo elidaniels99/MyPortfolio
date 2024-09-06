@@ -1164,6 +1164,42 @@
     <a class="next" onclick="plusSlides(1, '#lightbox1')">&#10095;</a>
   </div>
 </div>
+  <script>
+  function showSlides(slideIndex, lightboxId) {
+    const lightbox = document.querySelector(lightboxId);
+    const slides = lightbox.querySelectorAll('.slide');
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    if (slideIndex < 1) { slideIndex = slides.length }
+    slides.forEach((slide, index) => {
+      slide.style.display = index === slideIndex - 1 ? "block" : "none";
+    });
+  }
+
+  function plusSlides(n, lightboxId) {
+    const lightbox = document.querySelector(lightboxId);
+    const slides = lightbox.querySelectorAll('.slide');
+    let slideIndex = Array.from(slides).findIndex(slide => slide.style.display === "block") + 1;
+    slideIndex = (slideIndex + n - 1 + slides.length) % slides.length + 1;
+    showSlides(slideIndex, lightboxId);
+  }
+
+  document.querySelectorAll('.lightbox').forEach(lightbox => {
+    lightbox.querySelector('.prev').addEventListener('click', (event) => {
+      event.preventDefault();
+      plusSlides(-1, `#${lightbox.id}`);
+    });
+    lightbox.querySelector('.next').addEventListener('click', (event) => {
+      event.preventDefault();
+      plusSlides(1, `#${lightbox.id}`);
+    });
+  });
+
+  // Initialize slides
+  document.querySelectorAll('.lightbox').forEach(lightbox => {
+    showSlides(1, `#${lightbox.id}`);
+  });
+</script>
+
 </body>
 
 </html>
