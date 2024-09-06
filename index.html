@@ -1090,17 +1090,20 @@
       display: flex;
     }
 
-    .lightbox img {
-      display: none; /* Hide all images by default */
+    .lightbox .slide {
+      display: none;
       max-width: 80%;
       max-height: 80%;
       margin: 10px;
     }
 
-    .lightbox .slide {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .lightbox .slide img {
+      width: 100%;
+      height: auto;
+    }
+
+    .lightbox .slide.show {
+      display: block;
     }
 
     .lightbox .close {
@@ -1138,15 +1141,29 @@
     .prev:hover, .next:hover {
       background-color: rgba(0, 0, 0, 0.8);
     }
-  </style>
+</style>
 <div id="lightbox1" class="lightbox">
   <a href="#" class="close">&times;</a>
-  <img src="./assets/images/app skins 1.jpg" alt="App Skins 1">
-  <img src="./assets/images/app skins 2.jpeg" alt="App Skins 2">
-  <img src="./assets/images/app skins 3.jpeg" alt="App Skins 3">
-  <img src="./assets/images/app skins 4.jpeg" alt="App Skins 4">
-  <img src="./assets/images/app skins 5.jpeg" alt="App Skins 5">
-  <img src="./assets/images/app skins 6.jpeg" alt="App Skins 6">
+  <a class="prev">&#10094;</a>
+  <a class="next">&#10095;</a>
+  <div class="slide">
+    <img src="./assets/images/app skins 1.jpg" alt="App Skins 1">
+  </div>
+  <div class="slide">
+    <img src="./assets/images/app skins 2.jpeg" alt="App Skins 2">
+  </div>
+  <div class="slide">
+    <img src="./assets/images/app skins 3.jpeg" alt="App Skins 3">
+  </div>
+  <div class="slide">
+    <img src="./assets/images/app skins 4.jpeg" alt="App Skins 4">
+  </div>
+  <div class="slide">
+    <img src="./assets/images/app skins 5.jpeg" alt="App Skins 5">
+  </div>
+  <div class="slide">
+    <img src="./assets/images/app skins 6.jpeg" alt="App Skins 6">
+  </div>
 </div>
 <script>
   function showSlides(slideIndex, lightboxId) {
