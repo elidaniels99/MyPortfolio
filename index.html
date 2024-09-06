@@ -1148,10 +1148,11 @@
   <img src="./assets/images/app skins 5.jpeg" alt="App Skins 5">
   <img src="./assets/images/app skins 6.jpeg" alt="App Skins 6">
 </div>
-  <script>
+<script>
   function showSlides(slideIndex, lightboxId) {
     const lightbox = document.querySelector(lightboxId);
-    const slides = lightbox.querySelectorAll('.slide');
+    const slides = lightbox.querySelectorAll('.slide img');
+    if (slides.length === 0) return;
     if (slideIndex > slides.length) { slideIndex = 1 }
     if (slideIndex < 1) { slideIndex = slides.length }
     slides.forEach((slide, index) => {
@@ -1161,7 +1162,7 @@
 
   function plusSlides(n, lightboxId) {
     const lightbox = document.querySelector(lightboxId);
-    const slides = lightbox.querySelectorAll('.slide');
+    const slides = lightbox.querySelectorAll('.slide img');
     let slideIndex = Array.from(slides).findIndex(slide => slide.style.display === "block") + 1;
     slideIndex = (slideIndex + n - 1 + slides.length) % slides.length + 1;
     showSlides(slideIndex, lightboxId);
