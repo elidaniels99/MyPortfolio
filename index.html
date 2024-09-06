@@ -1071,7 +1071,7 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
- <style>
+<style>
         /* Basic styling for lightbox */
         .lightbox {
             display: none;
@@ -1084,6 +1084,7 @@
             background-color: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
 
         .lightbox:target {
@@ -1117,6 +1118,7 @@
             background: rgba(0, 0, 0, 0.5);
             padding: 5px 10px;
             border-radius: 50%;
+            z-index: 1001;
         }
 
         .prev, .next {
@@ -1131,6 +1133,7 @@
             transition: 0.6s ease;
             border-radius: 0 3px 3px 0;
             user-select: none;
+            z-index: 1001;
         }
 
         .next {
@@ -1145,6 +1148,12 @@
         /* Radio buttons and labels */
         .lightbox input[type="radio"] {
             display: none;
+        }
+
+        .lightbox .slides {
+            position: relative;
+            width: 100%;
+            height: 100%;
         }
 
         .lightbox .slide:nth-of-type(1) {
@@ -1188,6 +1197,8 @@
             background: white;
         }
     </style>
+  </head>
+<body>
 <div id="lightbox1" class="lightbox">
     <a href="#" class="close">&times;</a>
     <div class="slides">
@@ -1200,21 +1211,33 @@
         
         <div class="slide">
             <img src="./assets/images/app skins 1.jpg" alt="App Skins 1">
+            <a href="#" class="prev">&#10094;</a>
+            <a href="#" class="next">&#10095;</a>
         </div>
         <div class="slide">
             <img src="./assets/images/app skins 2.jpg" alt="App Skins 2">
+            <a href="#" class="prev">&#10094;</a>
+            <a href="#" class="next">&#10095;</a>
         </div>
         <div class="slide">
             <img src="./assets/images/app skins 3.jpg" alt="App Skins 3">
+            <a href="#" class="prev">&#10094;</a>
+            <a href="#" class="next">&#10095;</a>
         </div>
         <div class="slide">
             <img src="./assets/images/app skins 4.jpg" alt="App Skins 4">
+            <a href="#" class="prev">&#10094;</a>
+            <a href="#" class="next">&#10095;</a>
         </div>
         <div class="slide">
             <img src="./assets/images/app skins 5.jpg" alt="App Skins 5">
+            <a href="#" class="prev">&#10094;</a>
+            <a href="#" class="next">&#10095;</a>
         </div>
         <div class="slide">
             <img src="./assets/images/app skins 6.jpg" alt="App Skins 6">
+            <a href="#" class="prev">&#10094;</a>
+            <a href="#" class="next">&#10095;</a>
         </div>
     </div>
     <div class="nav">
