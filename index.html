@@ -1071,7 +1071,7 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    <style>
+ <style>
     /* Basic styling for lightbox */
     .lightbox {
       display: none;
@@ -1086,14 +1086,21 @@
       align-items: center;
     }
 
+    .lightbox:target {
+      display: flex;
+    }
+
     .lightbox img {
+      display: none; /* Hide all images by default */
       max-width: 80%;
       max-height: 80%;
       margin: 10px;
     }
 
-    .lightbox:target {
+    .lightbox .slide {
       display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .lightbox .close {
@@ -1107,23 +1114,55 @@
       padding: 5px 10px;
       border-radius: 50%;
     }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
   </style>
 <div id="lightbox1" class="lightbox">
   <a href="#" class="close">&times;</a>
-  <img src="./assets/images/app skins 1.jpg" alt="App Skins 1">
-  <img src="./assets/images/app skins 2.jpeg" alt="App Skins 2">
-  <img src="./assets/images/app skins 3.jpeg" alt="App Skins 3">
-  <img src="./assets/images/app skins 4.jpeg" alt="App Skins 4">
-  <img src="./assets/images/app skins 5.jpeg" alt="App Skins 5">
-  <img src="./assets/images/app skins 6.jpeg" alt="App Skins 6">
-</div>
-
-<!-- Lightbox for Airplane Pockets -->
-<div id="lightbox2" class="lightbox">
-  <a href="#" class="close">&times;</a>
-  <img src="./assets/images/Airplane Pockets 1.png" alt="Airplane Pockets 1">
-  <img src="./assets/images/Airplane Pockets 2.png" alt="Airplane Pockets 2">
-  <!-- Add more images if available -->
+  <div class="slideshow-container">
+    <div class="slide">
+      <img src="./assets/images/app skins 1.jpg" alt="App Skins 1">
+    </div>
+    <div class="slide">
+      <img src="./assets/images/app skins 2.jpeg" alt="App Skins 2">
+    </div>
+    <div class="slide">
+      <img src="./assets/images/app skins 3.jpeg" alt="App Skins 3">
+    </div>
+    <div class="slide">
+      <img src="./assets/images/app skins 4.jpeg" alt="App Skins 4">
+    </div>
+    <div class="slide">
+      <img src="./assets/images/app skins 5.jpeg" alt="App Skins 5">
+    </div>
+    <div class="slide">
+      <img src="./assets/images/app skins 6.jpeg" alt="App Skins 6">
+    </div>
+    <a class="prev" onclick="plusSlides(-1, '#lightbox1')">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, '#lightbox1')">&#10095;</a>
+  </div>
 </div>
 </body>
 
