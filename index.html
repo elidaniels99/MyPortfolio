@@ -1075,7 +1075,7 @@
  <style>
         /* Basic styling for lightbox */
         .lightbox {
-            display: flex;
+            display: none;
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -1087,6 +1087,10 @@
             align-items: center;
             flex-wrap: wrap; /* Allows images to wrap if necessary */
             overflow: auto; /* Add scrollbars if the content overflows */
+        }
+
+        .lightbox:target {
+            display: flex;
         }
 
         .lightbox .slide {
@@ -1111,6 +1115,33 @@
             padding: 5px 10px;
             border-radius: 50%;
             z-index: 1001; /* Ensure the close button is above other elements */
+        }
+
+        /* Basic styling for the project item */
+        .project-img {
+            display: block;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .project-item-icon-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-title, .project-category {
+            text-align: center;
+        }
+
+        .project-title {
+            margin-top: 10px;
         }
     </style>
 </head>
